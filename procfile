@@ -1,1 +1,1 @@
-web: gunicorn app:gerador_de_senha
+web: gunicorn gerador_de_senha:app
