@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import random
 import string
 
-gerador_de_senha = Flask(__name__)
+gerador_de_senha= Flask(__name__)
 
 # Função para gerar a senha
 def gerar_senha(tamanho=12, usar_maiusculas=True, usar_numeros=True, usar_simbolos=True):
