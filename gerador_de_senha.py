@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import random
 import string
 
-app = Flask(__name__)
+gerador_de_senha = Flask(__name__)
 
 # Função para gerar a senha
 def gerar_senha(tamanho=12, usar_maiusculas=True, usar_numeros=True, usar_simbolos=True):
@@ -24,7 +24,7 @@ def gerar_senha(tamanho=12, usar_maiusculas=True, usar_numeros=True, usar_simbol
     # Gerar a senha
     return ''.join(random.choice(caracteres) for _ in range(tamanho))
 
-@app.route('/', methods=['GET', 'POST'])
+@gerador_de_senha.route('/', methods=['GET', 'POST'])
 def index():
     senha = None
     if request.method == 'POST':
@@ -40,4 +40,4 @@ def index():
     return render_template('index.html', senha=senha)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    gerador_de_senha.run(debug=True)
