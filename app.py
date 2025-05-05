@@ -1,4 +1,4 @@
-import Flask
+from flask import Flask
 import random
 import string
 import os
