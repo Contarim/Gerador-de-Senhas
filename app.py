@@ -1,8 +1,12 @@
 from flask import Flask, render_template, request
 import random
 import string
+import os
 
 app = Flask(__name__)
+
+# Configurações para ambiente de produção
+app.config['ENV'] = 'production'
 
 # Função para gerar a senha
 def gerar_senha(tamanho=12, usar_maiusculas=True, usar_numeros=True, usar_simbolos=True):
@@ -38,3 +42,7 @@ def index():
         senha = gerar_senha(tamanho, usar_maiusculas, usar_numeros, usar_simbolos)
 
     return render_template('index.html', senha=senha)
+
+if __name__ == '__main__':
+    # Certifique-se de que o Flask escute na porta correta no Render
+    app.run(debug=True, host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
