@@ -38,6 +38,3 @@ def index():
         senha = gerar_senha(tamanho, usar_maiusculas, usar_numeros, usar_simbolos)
 
     return render_template('index.html', senha=senha)
-
-if __name__ == '__main__':
-    app.run(debug=True)
