@@ -19,7 +19,8 @@
                 <form method="POST">
                     <div class="mb-3">
                         <label for="tamanho" class="form-label">Tamanho da Senha</label>
-                        <input type="number" class="form-control" name="tamanho" id="tamanho" value="12" min="4" max="64" required>
+                        <input type="number" class="form-control" name="tamanho" id="tamanho" 
+                               value="{{ request.form.get('tamanho', 12) }}" min="4" max="64" required>
                     </div>
                     <div class="form-check text-start">
                         <input class="form-check-input" type="checkbox" name="maiusculas" id="maiusculas"

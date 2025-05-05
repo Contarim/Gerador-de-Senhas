@@ -156,3 +156,14 @@ img {
         text-align: center;
     }
 }
+
+footer a {
+    color: inherit; /* mantém a cor original (branco) */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #0d6efd; /* azul Bootstrap */
+}
+
