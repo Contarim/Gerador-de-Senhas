@@ -17,7 +17,7 @@ def gerar_senha(tamanho=12, usar_maiusculas=True, usar_numeros=True, usar_simbol
     if usar_numeros:
         caracteres += string.digits
 
-    simbolos_permitidos = "!@#$%&*-+?/\\"
+    simbolos_permitidos = "!@#$%&*-+?/\\"  # Símbolos permitidos
 
     if usar_simbolos:
         caracteres += simbolos_permitidos
@@ -48,6 +48,11 @@ def index():
         usar_numeros=usar_numeros,
         usar_simbolos=usar_simbolos
     )
+
+# Endpoint para manter a aplicação ativa
+@app.route('/heartbeat')
+def heartbeat():
+    return 'OK', 200  # Responde com "OK" para indicar que o servidor está ativo
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
